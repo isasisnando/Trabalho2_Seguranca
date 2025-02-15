@@ -41,7 +41,7 @@ class simpleHTTPRH(BaseHTTPRequestHandler):
 context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
 context.load_cert_chain(certfile = 'certificate.pem', keyfile = 'key.pem')
 context.check_hostname = False
-print(f'Servidor rodando em localhost, na port {PORT}')
+print(f'Servidor rodando em localhost 127.0.0.1 , na port {PORT}')
 httpd = HTTPServer((HOST, PORT), simpleHTTPRH)
 httpd.socket = context.wrap_socket(httpd.socket, server_side = True) 
 httpd.serve_forever()
