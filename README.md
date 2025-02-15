@@ -12,7 +12,7 @@ Repositório do projeto no GitHub: https://github.com/isasisnando/Trabalho2_Segu
 
 ## Descrição
 
-O objetivo deste projeto é implementar um sistema cliente-servidor que utiliza HTTPS com SSL/TLS, simulando uma comunicação segura entre as partes. Ele foi desenvolvido em Python. Os arquivos são divididos da seguinte maneira:
+O objetivo deste projeto é implementar um sistema cliente-servidor que utiliza HTTPS com SSL/TLS, simulando uma comunicação segura entre as partes. Ele foi desenvolvido em Python, com o uso das bibliotecas **ssl** (para gerar e verificqar o certificado e a chave), **http** (para criar uma conexão HTTPS entre cliente e servidor, e realizar o tratamento de requisições) e **io** (para ler mensagens enviadas pelo terminal). Os arquivos são divididos da seguinte maneira:
 - ```server.py```: código-fonte do servidor;
 - ```client.py```: código-fonte do cliente;
 - ```certificate.pem```: certificado SSL do servidor;
