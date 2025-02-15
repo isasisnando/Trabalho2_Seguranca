@@ -44,4 +44,4 @@ context.check_hostname = False
 print(f'Servidor rodando em localhost 127.0.0.1 , na port {PORT}')
 httpd = HTTPServer((HOST, PORT), simpleHTTPRH)
 httpd.socket = context.wrap_socket(httpd.socket, server_side = True) 
-httpd.serve_forever()
+httpd.serve_forever() # não fecha a conexão do lado do servidor
