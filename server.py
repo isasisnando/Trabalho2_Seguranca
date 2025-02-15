@@ -2,7 +2,7 @@ import ssl
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from io import BytesIO
 
-HOST = "127.0.0.1"
+HOST = '127.0.0.1'
 PORT = 3300
 
 
@@ -20,12 +20,12 @@ class simpleHTTPRH(BaseHTTPRequestHandler):
         #Tamanho da mensagem
         len_mensagem = int(self.headers['Content-Length'])
         #ler o conteúdo da mensagem
-        body = self.rfile.red(len_mensagem)
+        body = self.rfile.read(len_mensagem)
         #mandar resposta 200 para confirmar que está OK
         self.send_response(200)
         self.end_headers()
         resposta = BytesIO()
-        resposta.write(b'Isso eh um POST request.  ')
+        resposta.write(b'Isso eh um POST request.\n')
         resposta.write(b'Mensagem recebida: ')
         resposta.write(body)
         self.wfile.write(resposta.getvalue())
@@ -45,7 +45,7 @@ class simpleHTTPRH(BaseHTTPRequestHandler):
 context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
 context.load_cert_chain(certfile = 'certificate.pem', keyfile = 'key.pem')
 context.check_hostname = False
-print(f'Servidor rodando em {HOST}, na port {PORT}')
+print(f'Servidor rodando em localhost, na port {PORT}')
 httpd = HTTPServer((HOST, PORT), simpleHTTPRH)
 httpd.socket = context.wrap_socket(httpd.socket, server_side = True) 
 httpd.serve_forever()
