@@ -32,11 +32,7 @@ class simpleHTTPRH(BaseHTTPRequestHandler):
 
 #SSL/TLS
 # chave e certificado gerados com o comando:
-# openssl genrsa -out key.pem 2048
-#Request do Certificado com o comando:
-# openssl req -new -key key.pem -out signreq.csr
-# Comando para assinar o certificado com a chave criada
-# openssl x509 -req -days 365 -in signreq.csr -signkey key.pem -out certificate.pem
+#openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 365
 # comando para visualizar dados do certificado:
 #openssl x509 -text -noout -in certificate.pem
 
